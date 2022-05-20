@@ -14,7 +14,6 @@ const server = http.createServer(app);
 const io = socketUtils.sio(server);
 socketUtils.connection(io, sendData);
 console.log(io);
-// CORS
 app.use(cors());
 function sendData(socket) {
     socket.emit(
@@ -25,7 +24,6 @@ function sendData(socket) {
         sendData(socket);
     }, 1000);
 }
-// LISTEN
 server.listen(3003, () => {
     console.log(`App running on port ${3003}...`);
 });
